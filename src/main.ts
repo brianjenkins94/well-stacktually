@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async function(event) {
 	const auth0Client = await createAuth0Client({
 		"client_id": "Y8ZTjeZQp6wuGYidADfU7ubTe3nWjBLY",
 		"domain": "brianjenkins94.auth0.com",
-		//"redirect_uri": location.origin + location.pathname,
+		"redirect_uri": location.origin + location.pathname,
 		"useRefreshTokens": true,
 		"cacheLocation": "localstorage"
 	});
