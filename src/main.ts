@@ -3,9 +3,11 @@ import createAuth0Client from "@auth0/auth0-spa-js"; // "@auth0/auth0-spa-js/src
 document.addEventListener("DOMContentLoaded", async function(event) {
 
 	const auth0Client = await createAuth0Client({
-		"domain": "brianjenkins94.auth0.com",
 		"client_id": "Y8ZTjeZQp6wuGYidADfU7ubTe3nWjBLY",
-		"redirect_uri": location.origin + location.pathname
+		"domain": "brianjenkins94.auth0.com",
+		//"redirect_uri": location.origin + location.pathname,
+		"useRefreshTokens": true,
+		"cacheLocation": "localstorage"
 	});
 
 	console.log(await auth0Client.isAuthenticated());

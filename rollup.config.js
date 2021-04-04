@@ -22,7 +22,8 @@ export default {
 			[/^(?:import|export) .*$/gm, "//$0"],
 			[/^( {4})+/gm, function(match) {
 				return "\t".repeat(match.length / 4);
-			}]
+			}],
+			[/\r\n/gm, "\n"]
 		])
 	],
 	"watch": {
