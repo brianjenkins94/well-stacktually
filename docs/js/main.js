@@ -17,7 +17,8 @@ var t=function(e,n){return (t=Object.setPrototypeOf||{__proto__:[]}instanceof Ar
 document.addEventListener("DOMContentLoaded", async function (event) {
 	const auth0Client = await Xo({
 		"domain": "brianjenkins94.auth0.com",
-		"client_id": "Y8ZTjeZQp6wuGYidADfU7ubTe3nWjBLY"
+		"client_id": "Y8ZTjeZQp6wuGYidADfU7ubTe3nWjBLY",
+		"redirect_uri": location.origin + location.pathname
 	});
 	document.getElementById("login").addEventListener("click", function () {
 		auth0Client.loginWithRedirect().catch(function (error) {
