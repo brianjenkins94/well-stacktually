@@ -1,0 +1,41 @@
+{
+  "name": "well-stacktually",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "rollup --config --watch",
+    "serve": "npx http-server docs/ -c-1 -o",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brianjenkins94/well-stacktually.git"
+  },
+  "author": "Brian Jenkins",
+  "contributors": [
+    {
+      "name": "8bitNick",
+      "url": "https://github.com/8bitNick"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brianjenkins94/well-stacktually/issues"
+  },
+  "homepage": "https://github.com/brianjenkins94/well-stacktually#readme",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "latest",
+    "@rollup/plugin-node-resolve": "latest",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "eslint": "latest",
+    "rollup": "latest",
+    "rollup-plugin-postprocess": "github:brettz9/rollup-plugin-postprocess#update",
+    "rollup-plugin-typescript2": "latest",
+    "tslib": "latest",
+    "typescript": "latest"
+  },
+  "dependencies": {
+    "@auth0/auth0-spa-js": "^1.14.0"
+  }
+}
