@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", async function(event) {
 		"redirect_uri": location.origin + location.pathname
 	});
 
+	user = await auth0Client.getUser();
+
 	document.getElementById("login").addEventListener("click", function() {
 		console.log(user);
 

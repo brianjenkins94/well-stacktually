@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", async function (event) {
 		"client_id": "Y8ZTjeZQp6wuGYidADfU7ubTe3nWjBLY",
 		"redirect_uri": location.origin + location.pathname
 	});
+	user = await auth0Client.getUser();
 	document.getElementById("login").addEventListener("click", function () {
 		console.log(user);
 		auth0Client.loginWithRedirect().catch(function (error) {
