@@ -8,8 +8,6 @@ document.addEventListener("DOMContentLoaded", async function(event) {
 		"redirect_uri": location.origin + location.pathname
 	});
 
-	const user = await auth0Client.getUser();
-
 	document.getElementById("login").addEventListener("click", function() {
 		console.log("`login` clicked.");
 
@@ -24,14 +22,14 @@ document.addEventListener("DOMContentLoaded", async function(event) {
 		auth0Client.logout();
 	});
 
-	document.getElementById("getInfo").addEventListener("click", function() {
+	document.getElementById("getInfo").addEventListener("click", async function() {
 		console.log("`getInfo` clicked.");
 
-		document.body.append(JSON.stringify(user, undefined, 4));
+		document.body.append(JSON.stringify(await auth0Client.getUser(), undefined, 4));
 	});
 
 	auth0Client.handleRedirectCallback().then(function(redirectResult) {
-		console.log("Logged in.");
+		console.log(redirectResult);
 	});
 
 });
