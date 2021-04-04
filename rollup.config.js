@@ -11,7 +11,7 @@ export default {
 		"file": "docs/js/main.js",
 		"format": "esm"
 	},
-	"external": [],
+	"external": ["@auth0/auth0-spa-js"],
 	"plugins": [
 		nodeResolve(),
 		commonJs(),

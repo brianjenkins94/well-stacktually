@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/brianjenkins94/well-stacktually#readme",
   "devDependencies": {
+    "@auth0/auth0-spa-js": "^1.14.0",
     "@rollup/plugin-commonjs": "latest",
     "@rollup/plugin-node-resolve": "latest",
     "@typescript-eslint/eslint-plugin": "latest",
@@ -34,8 +35,5 @@
     "rollup-plugin-typescript2": "latest",
     "tslib": "latest",
     "typescript": "latest"
-  },
-  "dependencies": {
-    "@auth0/auth0-spa-js": "^1.14.0"
   }
 }
