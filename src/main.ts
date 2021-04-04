@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", async function(event) {
 		"redirect_uri": location.origin + location.pathname
 	});
 
+	console.log(await auth0Client.isAuthenticated());
+
 	document.getElementById("login").addEventListener("click", function() {
 		console.log("`login` clicked.");
 
@@ -30,6 +32,8 @@ document.addEventListener("DOMContentLoaded", async function(event) {
 
 	auth0Client.handleRedirectCallback().then(function(redirectResult) {
 		console.log(redirectResult);
+
+		window.history.replaceState({}, document.title, window.location.pathname);
 	});
 
 });
