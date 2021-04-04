@@ -11,17 +11,23 @@ document.addEventListener("DOMContentLoaded", async function(event) {
 	});
 
 	document.getElementById("login").addEventListener("click", function() {
+		console.log(user);
+
 		auth0Client.loginWithRedirect().catch(function(error) {
 			alert(error);
 		});
 	});
 
 	document.getElementById("logout").addEventListener("click", function() {
+		console.log(user);
+
 		auth0Client.logout();
 	});
 
 	document.getElementById("getInfo").addEventListener("click", async function() {
-		document.body.innerHTML += JSON.stringify(await auth0Client.getUser(), undefined, 4);
+		console.log(user);
+
+		document.body.innerHTML += JSON.stringify(user, undefined, 4);
 	});
 
 	auth0Client.handleRedirectCallback().then(async function(redirectResult) {
