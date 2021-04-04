@@ -17,9 +17,7 @@ var t=function(e,n){return (t=Object.setPrototypeOf||{__proto__:[]}instanceof Ar
 document.addEventListener("DOMContentLoaded", async function (event) {
 	const auth0Client = await Xo({
 		"domain": "brianjenkins94.auth0.com",
-		"client_id": "Y8ZTjeZQp6wuGYidADfU7ubTe3nWjBLY",
-		"redirect_uri": location.origin + location.pathname,
-		"cacheLocation": "localstorage"
+		"client_id": "Y8ZTjeZQp6wuGYidADfU7ubTe3nWjBLY"
 	});
 	document.getElementById("login").addEventListener("click", function () {
 		auth0Client.loginWithRedirect().catch(function (error) {
@@ -29,10 +27,11 @@ document.addEventListener("DOMContentLoaded", async function (event) {
 	document.getElementById("logout").addEventListener("click", function () {
 		auth0Client.logout();
 	});
-	auth0Client.handleRedirectCallback().then(function (redirectResult) {
+	document.getElementById("getInfo").addEventListener("click", async function () {
+		document.body.innerHTML += JSON.stringify(await auth0Client.getUser(), undefined, 4);
+	});
+	auth0Client.handleRedirectCallback().then(async function (redirectResult) {
 		console.log("Logged in.");
-		auth0Client.getUser().then(function (user) {
-			console.log(user);
-		});
+		await auth0Client.getUser();
 	});
 });

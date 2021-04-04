@@ -1,12 +1,12 @@
 import createAuth0Client from "@auth0/auth0-spa-js"; // "@auth0/auth0-spa-js/src/index";
 
+let user;
+
 document.addEventListener("DOMContentLoaded", async function(event) {
 
 	const auth0Client = await createAuth0Client({
 		"domain": "brianjenkins94.auth0.com",
-		"client_id": "Y8ZTjeZQp6wuGYidADfU7ubTe3nWjBLY",
-		"redirect_uri": location.origin + location.pathname,
-		"cacheLocation": "localstorage"
+		"client_id": "Y8ZTjeZQp6wuGYidADfU7ubTe3nWjBLY"
 	});
 
 	document.getElementById("login").addEventListener("click", function() {
@@ -19,13 +19,15 @@ document.addEventListener("DOMContentLoaded", async function(event) {
 		auth0Client.logout();
 	});
 
-	auth0Client.handleRedirectCallback().then(function(redirectResult) {
+	document.getElementById("getInfo").addEventListener("click", async function() {
+		document.body.innerHTML += JSON.stringify(await auth0Client.getUser(), undefined, 4);
+	});
+
+	auth0Client.handleRedirectCallback().then(async function(redirectResult) {
 
 		console.log("Logged in.");
 
-		auth0Client.getUser().then(function(user) {
-			console.log(user);
-		});
+		user = await auth0Client.getUser();
 
 	});
 
