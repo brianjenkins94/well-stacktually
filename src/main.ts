@@ -10,31 +10,17 @@ document.addEventListener("DOMContentLoaded", async function(event) {
 		"cacheLocation": "localstorage"
 	});
 
-	console.log(await auth0Client.isAuthenticated());
-
 	document.getElementById("login").addEventListener("click", function() {
-		console.log("`login` clicked.");
-
 		auth0Client.loginWithRedirect().catch(function(error) {
 			alert(error);
 		});
 	});
 
 	document.getElementById("logout").addEventListener("click", function() {
-		console.log("`logout` clicked.");
-
 		auth0Client.logout();
 	});
 
-	document.getElementById("getInfo").addEventListener("click", async function() {
-		console.log("`getInfo` clicked.");
-
-		document.body.append(JSON.stringify(await auth0Client.getUser(), undefined, 4));
-	});
-
 	auth0Client.handleRedirectCallback().then(function(redirectResult) {
-		console.log(redirectResult);
-
 		window.history.replaceState({}, document.title, window.location.pathname);
 	});
 
